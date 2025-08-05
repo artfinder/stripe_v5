@@ -1,0 +1,8 @@
+# Ignore dist-info and wheel build artifacts
+*.pyc
+__pycache__/
+*.egg-info/
+dist/
+build/
+stripe-5.0.0.dist-info/
+stripe_v5_whl/
