@@ -12,7 +12,7 @@ setup(
         "urllib3>=1.25",  # These are typical for Stripe v5.x
     ],
     include_package_data=True,
-    url='https://github.com/NoukhezAhmed786/stripe-py-v5',
+    url='https://github.com/NoukhezAhmed786/stripe_v5.git',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
