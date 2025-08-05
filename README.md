@@ -14,4 +14,4 @@ This repository contains the extracted source code for `stripe` Python client v5
 Install the package directly from this GitHub repository:
 
 ```bash
-pip install git+https://github.com/NoukhezAhmed786/stripe-py-v5.git@v5.0.0
+pip install git+https://github.com/NoukhezAhmed786/stripe_v5
