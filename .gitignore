@@ -6,3 +6,5 @@ dist/
 build/
 stripe-5.0.0.dist-info/
 stripe_v5_whl/
+
+.idea/

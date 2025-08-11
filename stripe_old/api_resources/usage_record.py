@@ -2,8 +2,8 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import api_requestor, util
-from stripe.api_resources.abstract import APIResource
+from stripe_old import api_requestor, util
+from stripe_old.api_resources.abstract import APIResource
 
 
 class UsageRecord(APIResource):

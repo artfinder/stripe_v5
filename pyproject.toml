@@ -1,12 +1,27 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "stripe_old"
 version = "5.0.0"
-description = "Stripe Python bindings (unofficial repackaged)"
-authors = [{name = "Stripe", email = "support@stripe.com"}]
-requires-python = ">=3.6"
+description = "Unofficial repackaged Stripe Python bindings. Original code by Stripe."
 readme = "README.md"
-license = {text = "MIT"}
+requires-python = ">=3.6"
+authors = [{ name = "Dr Noukhez Ahmed" }]
+dependencies = [
+  "requests>=2.20",
+  "urllib3>=1.25",
+]
+license = { text = "MIT" }
+
+[tool.setuptools]
+include-package-data = true
+
+# Include ALL python packages under stripe_old/**
+[tool.setuptools.packages.find]
+include = ["stripe_old", "stripe_old.*"]
+
+# Include ALL files (non-.py as package data) under stripe_old/**
+[tool.setuptools.package-data]
+stripe_old = ["**/*"]

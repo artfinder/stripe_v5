@@ -9,11 +9,11 @@ import uuid
 import warnings
 from collections import OrderedDict
 
-import stripe
-from stripe import error, oauth_error, http_client, version, util, six
-from stripe.multipart_data_generator import MultipartDataGenerator
-from stripe.six.moves.urllib.parse import urlencode, urlsplit, urlunsplit
-from stripe.stripe_response import StripeResponse, StripeStreamResponse
+import stripe_old
+from stripe_old import error, oauth_error, http_client, version, util, six
+from stripe_old.multipart_data_generator import MultipartDataGenerator
+from stripe_old.six.moves.urllib.parse import urlencode, urlsplit, urlunsplit
+from stripe_old.stripe_response import StripeResponse, StripeStreamResponse
 
 
 def _encode_datetime(dttime):
@@ -75,20 +75,20 @@ class APIRequestor(object):
         api_version=None,
         account=None,
     ):
-        self.api_base = api_base or stripe.api_base
+        self.api_base = api_base or stripe_old.api_base
         self.api_key = key
-        self.api_version = api_version or stripe.api_version
+        self.api_version = api_version or stripe_old.api_version
         self.stripe_account = account
 
         self._default_proxy = None
 
-        from stripe import verify_ssl_certs as verify
-        from stripe import proxy
+        from stripe_old import verify_ssl_certs as verify
+        from stripe_old import proxy
 
         if client:
             self._client = client
-        elif stripe.default_http_client:
-            self._client = stripe.default_http_client
+        elif stripe_old.default_http_client:
+            self._client = stripe_old.default_http_client
             if proxy != self._default_proxy:
                 warnings.warn(
                     "stripe.proxy was updated after sending a "
@@ -100,10 +100,10 @@ class APIRequestor(object):
             # If the stripe.default_http_client has not been set by the user
             # yet, we'll set it here. This way, we aren't creating a new
             # HttpClient for every request.
-            stripe.default_http_client = http_client.new_default_http_client(
+            stripe_old.default_http_client = http_client.new_default_http_client(
                 verify_ssl_certs=verify, proxy=proxy
             )
-            self._client = stripe.default_http_client
+            self._client = stripe_old.default_http_client
             self._default_proxy = proxy
 
     @classmethod
@@ -240,8 +240,8 @@ class APIRequestor(object):
 
     def request_headers(self, api_key, method):
         user_agent = "Stripe/v1 PythonBindings/%s" % (version.VERSION,)
-        if stripe.app_info:
-            user_agent += " " + self.format_app_info(stripe.app_info)
+        if stripe_old.app_info:
+            user_agent += " " + self.format_app_info(stripe_old.app_info)
 
         ua = {
             "bindings_version": version.VERSION,
@@ -259,8 +259,8 @@ class APIRequestor(object):
             except Exception:
                 val = "(disabled)"
             ua[attr] = val
-        if stripe.app_info:
-            ua["application"] = stripe.app_info
+        if stripe_old.app_info:
+            ua["application"] = stripe_old.app_info
 
         headers = {
             "X-Stripe-Client-User-Agent": json.dumps(ua),
@@ -295,7 +295,7 @@ class APIRequestor(object):
         if self.api_key:
             my_api_key = self.api_key
         else:
-            from stripe import api_key
+            from stripe_old import api_key
 
             my_api_key = api_key
 

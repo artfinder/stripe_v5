@@ -1,8 +1,8 @@
 from __future__ import absolute_import, division, print_function
 
-from stripe.six.moves.urllib.parse import quote_plus
+from stripe_old.six.moves.urllib.parse import quote_plus
 
-from stripe.api_resources.abstract import APIResource
+from stripe_old.api_resources.abstract import APIResource
 
 
 def nested_resource_class_methods(

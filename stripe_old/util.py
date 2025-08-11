@@ -8,9 +8,9 @@ import sys
 import os
 import re
 
-import stripe
-from stripe import six
-from stripe.six.moves.urllib.parse import parse_qsl, quote_plus
+import stripe_old
+from stripe_old import six
+from stripe_old.six.moves.urllib.parse import parse_qsl, quote_plus
 
 STRIPE_LOG = os.environ.get("STRIPE_LOG")
 
@@ -41,8 +41,8 @@ def is_appengine_dev():
 
 
 def _console_log_level():
-    if stripe.log in ["debug", "info"]:
-        return stripe.log
+    if stripe_old.log in ["debug", "info"]:
+        return stripe_old.log
     elif STRIPE_LOG in ["debug", "info"]:
         return STRIPE_LOG
     else:
@@ -64,9 +64,9 @@ def log_info(message, **params):
 
 
 def _test_or_live_environment():
-    if stripe.api_key is None:
+    if stripe_old.api_key is None:
         return
-    match = re.match(r"sk_(live|test)_", stripe.api_key)
+    match = re.match(r"sk_(live|test)_", stripe_old.api_key)
     if match is None:
         return
     return match.groups()[0]
@@ -130,7 +130,7 @@ else:
 
 def get_object_classes():
     # This is here to avoid a circular dependency
-    from stripe.object_classes import OBJECT_CLASSES
+    from stripe_old.object_classes import OBJECT_CLASSES
 
     return OBJECT_CLASSES
 
@@ -143,7 +143,7 @@ def convert_to_stripe_object(
     # the raw API response information
     stripe_response = None
 
-    if isinstance(resp, stripe.stripe_response.StripeResponse):
+    if isinstance(resp, stripe_old.stripe_response.StripeResponse):
         stripe_response = resp
         resp = stripe_response.data
 
@@ -155,16 +155,16 @@ def convert_to_stripe_object(
             for i in resp
         ]
     elif isinstance(resp, dict) and not isinstance(
-        resp, stripe.stripe_object.StripeObject
+        resp, stripe_old.stripe_object.StripeObject
     ):
         resp = resp.copy()
         klass_name = resp.get("object")
         if isinstance(klass_name, six.string_types):
             klass = get_object_classes().get(
-                klass_name, stripe.stripe_object.StripeObject
+                klass_name, stripe_old.stripe_object.StripeObject
             )
         else:
-            klass = stripe.stripe_object.StripeObject
+            klass = stripe_old.stripe_object.StripeObject
 
         obj = klass.construct_from(
             resp,

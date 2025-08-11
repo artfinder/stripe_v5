@@ -1,8 +1,8 @@
 from __future__ import absolute_import, division, print_function
 
-from stripe import error, util, six
-from stripe.six.moves.urllib.parse import quote_plus
-from stripe.api_resources.abstract import APIResource
+from stripe_old import error, util, six
+from stripe_old.six.moves.urllib.parse import quote_plus
+from stripe_old.api_resources.abstract import APIResource
 
 
 class APIResourceTestHelpers:

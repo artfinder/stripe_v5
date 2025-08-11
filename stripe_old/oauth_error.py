@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
-import stripe
-from stripe.error import StripeError
+import stripe_old
+from stripe_old.error import StripeError
 
 
 class OAuthError(StripeError):
@@ -23,8 +23,8 @@ class OAuthError(StripeError):
             return None
 
         return (
-            stripe.api_resources.error_object.OAuthErrorObject.construct_from(
-                self.json_body, stripe.api_key
+            stripe_old.api_resources.error_object.OAuthErrorObject.construct_from(
+                self.json_body, stripe_old.api_key
             )
         )
 

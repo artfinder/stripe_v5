@@ -2,7 +2,7 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import api_resources
+from stripe_old import api_resources
 
 
 OBJECT_CLASSES = {

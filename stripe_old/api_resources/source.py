@@ -2,12 +2,12 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import error
-from stripe import util
-from stripe.api_resources import Customer
-from stripe.api_resources.abstract import CreateableAPIResource
-from stripe.api_resources.abstract import UpdateableAPIResource
-from stripe.six.moves.urllib.parse import quote_plus
+from stripe_old import error
+from stripe_old import util
+from stripe_old.api_resources import Customer
+from stripe_old.api_resources.abstract import CreateableAPIResource
+from stripe_old.api_resources.abstract import UpdateableAPIResource
+from stripe_old.six.moves.urllib.parse import quote_plus
 
 
 class Source(CreateableAPIResource, UpdateableAPIResource):
