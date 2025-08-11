@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
-from stripe import six
-from stripe.stripe_object import StripeObject
+from stripe_old import six
+from stripe_old.stripe_object import StripeObject
 
 
 class SearchResultObject(StripeObject):

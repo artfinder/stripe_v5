@@ -2,10 +2,10 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import util
-from stripe.api_resources.abstract import APIResource
-from stripe.api_resources.customer import Customer
-from stripe.six.moves.urllib.parse import quote_plus
+from stripe_old import util
+from stripe_old.api_resources.abstract import APIResource
+from stripe_old.api_resources.customer import Customer
+from stripe_old.six.moves.urllib.parse import quote_plus
 
 
 class TaxId(APIResource):

@@ -2,13 +2,13 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import util
-from stripe.api_resources.abstract import APIResourceTestHelpers
-from stripe.api_resources.abstract import CreateableAPIResource
-from stripe.api_resources.abstract import DeletableAPIResource
-from stripe.api_resources.abstract import ListableAPIResource
-from stripe.api_resources.abstract import UpdateableAPIResource
-from stripe.api_resources.abstract import test_helpers
+from stripe_old import util
+from stripe_old.api_resources.abstract import APIResourceTestHelpers
+from stripe_old.api_resources.abstract import CreateableAPIResource
+from stripe_old.api_resources.abstract import DeletableAPIResource
+from stripe_old.api_resources.abstract import ListableAPIResource
+from stripe_old.api_resources.abstract import UpdateableAPIResource
+from stripe_old.api_resources.abstract import test_helpers
 
 
 @test_helpers

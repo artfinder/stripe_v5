@@ -2,14 +2,14 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import error
-from stripe import util
-from stripe.api_resources.abstract import DeletableAPIResource
-from stripe.api_resources.abstract import UpdateableAPIResource
-from stripe.api_resources.abstract import VerifyMixin
-from stripe.api_resources.account import Account
-from stripe.api_resources.customer import Customer
-from stripe.six.moves.urllib.parse import quote_plus
+from stripe_old import error
+from stripe_old import util
+from stripe_old.api_resources.abstract import DeletableAPIResource
+from stripe_old.api_resources.abstract import UpdateableAPIResource
+from stripe_old.api_resources.abstract import VerifyMixin
+from stripe_old.api_resources.account import Account
+from stripe_old.api_resources.customer import Customer
+from stripe_old.six.moves.urllib.parse import quote_plus
 
 
 class BankAccount(DeletableAPIResource, UpdateableAPIResource, VerifyMixin):

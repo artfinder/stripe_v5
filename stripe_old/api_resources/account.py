@@ -2,15 +2,15 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-import stripe
-from stripe import oauth, six
-from stripe import util
-from stripe.api_resources.abstract import CreateableAPIResource
-from stripe.api_resources.abstract import DeletableAPIResource
-from stripe.api_resources.abstract import ListableAPIResource
-from stripe.api_resources.abstract import UpdateableAPIResource
-from stripe.api_resources.abstract import nested_resource_class_methods
-from stripe.six.moves.urllib.parse import quote_plus
+import stripe_old
+from stripe_old import oauth, six
+from stripe_old import util
+from stripe_old.api_resources.abstract import CreateableAPIResource
+from stripe_old.api_resources.abstract import DeletableAPIResource
+from stripe_old.api_resources.abstract import ListableAPIResource
+from stripe_old.api_resources.abstract import UpdateableAPIResource
+from stripe_old.api_resources.abstract import nested_resource_class_methods
+from stripe_old.six.moves.urllib.parse import quote_plus
 
 
 @nested_resource_class_methods(
@@ -143,7 +143,7 @@ class Account(
         for k, v in six.iteritems(self):
             if (
                 k == "individual"
-                and isinstance(v, stripe.api_resources.Person)
+                and isinstance(v, stripe_old.api_resources.Person)
                 and k not in params
             ):
                 params[k] = v.serialize(previous.get(k, None))

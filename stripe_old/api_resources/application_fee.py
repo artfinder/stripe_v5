@@ -2,9 +2,9 @@
 # File generated from our OpenAPI spec
 from __future__ import absolute_import, division, print_function
 
-from stripe import util
-from stripe.api_resources.abstract import ListableAPIResource
-from stripe.api_resources.abstract import nested_resource_class_methods
+from stripe_old import util
+from stripe_old.api_resources.abstract import ListableAPIResource
+from stripe_old.api_resources.abstract import nested_resource_class_methods
 
 
 @nested_resource_class_methods(

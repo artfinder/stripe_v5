@@ -9,16 +9,16 @@ import random
 import threading
 import json
 
-import stripe
-from stripe import error, util, six
-from stripe.request_metrics import RequestMetrics
+import stripe_old
+from stripe_old import error, util, six
+from stripe_old.request_metrics import RequestMetrics
 
 # - Requests is the preferred HTTP library
 # - Google App Engine has urlfetch
 # - Use Pycurl if it's there (at least it verifies SSL certs)
 # - Fall back to urllib2 with a warning if needed
 try:
-    from stripe.six.moves import urllib
+    from stripe_old.six.moves import urllib
 except ImportError:
     # Try to load in urllib2, but don't sweat it if it's not available.
     pass
@@ -60,7 +60,7 @@ except ImportError:
     urlfetch = None
 
 # proxy support for the pycurl client
-from stripe.six.moves.urllib.parse import urlparse
+from stripe_old.six.moves.urllib.parse import urlparse
 
 
 def _now_ms():
@@ -218,7 +218,7 @@ class HTTPClient(object):
         return False
 
     def _max_network_retries(self):
-        from stripe import max_network_retries
+        from stripe_old import max_network_retries
 
         # Configured retries, isolated here for tests
         return max_network_retries
@@ -264,7 +264,7 @@ class HTTPClient(object):
         last_request_metrics = getattr(
             self._thread_local, "last_request_metrics", None
         )
-        if stripe.enable_telemetry and last_request_metrics:
+        if stripe_old.enable_telemetry and last_request_metrics:
             telemetry = {
                 "last_request_metrics": last_request_metrics.payload()
             }
@@ -272,7 +272,7 @@ class HTTPClient(object):
 
     def _record_request_metrics(self, response, request_start):
         _, _, rheaders = response
-        if "Request-Id" in rheaders and stripe.enable_telemetry:
+        if "Request-Id" in rheaders and stripe_old.enable_telemetry:
             request_id = rheaders["Request-Id"]
             request_duration_ms = _now_ms() - request_start
             self._thread_local.last_request_metrics = RequestMetrics(
@@ -306,7 +306,7 @@ class RequestsClient(HTTPClient):
     def _request_internal(self, method, url, headers, post_data, is_streaming):
         kwargs = {}
         if self._verify_ssl_certs:
-            kwargs["verify"] = stripe.ca_bundle_path
+            kwargs["verify"] = stripe_old.ca_bundle_path
         else:
             kwargs["verify"] = False
 

@@ -4,8 +4,8 @@ import datetime
 import json
 from copy import deepcopy
 
-import stripe
-from stripe import api_requestor, util, six
+import stripe_old
+from stripe_old import api_requestor, util, six
 
 
 def _compute_diff(current, previous):
@@ -357,7 +357,7 @@ class StripeObject(dict):
         for k, v in six.iteritems(self):
             if k == "id" or (isinstance(k, str) and k.startswith("_")):
                 continue
-            elif isinstance(v, stripe.api_resources.abstract.APIResource):
+            elif isinstance(v, stripe_old.api_resources.abstract.APIResource):
                 continue
             elif hasattr(v, "serialize"):
                 child = v.serialize(previous.get(k, None))

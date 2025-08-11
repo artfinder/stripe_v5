@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
-from stripe import api_requestor, connect_api_base, error
-from stripe.six.moves.urllib.parse import urlencode
+from stripe_old import api_requestor, connect_api_base, error
+from stripe_old.six.moves.urllib.parse import urlencode
 
 
 class OAuth(object):
@@ -10,7 +10,7 @@ class OAuth(object):
         if "client_id" in params:
             return
 
-        from stripe import client_id
+        from stripe_old import client_id
 
         if client_id:
             params["client_id"] = client_id
@@ -18,7 +18,7 @@ class OAuth(object):
 
         raise error.AuthenticationError(
             "No client_id provided. (HINT: set your client_id using "
-            '"stripe.client_id = <CLIENT-ID>"). You can find your client_ids '
+            '"stripe_old.client_id = <CLIENT-ID>"). You can find your client_ids '
             "in your Stripe dashboard at "
             "https://dashboard.stripe.com/account/applications/settings, "
             "after registering your account as a platform. See "

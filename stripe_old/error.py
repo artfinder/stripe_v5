@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function
 
-import stripe
-from stripe.six import python_2_unicode_compatible
+import stripe_old
+from stripe_old.six import python_2_unicode_compatible
 
 
 @python_2_unicode_compatible
@@ -66,8 +66,8 @@ class StripeError(Exception):
         ):
             return None
 
-        return stripe.api_resources.error_object.ErrorObject.construct_from(
-            self.json_body["error"], stripe.api_key
+        return stripe_old.api_resources.error_object.ErrorObject.construct_from(
+            self.json_body["error"], stripe_old.api_key
         )
 
 
