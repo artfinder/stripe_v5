@@ -1,4 +1,4 @@
-# stripe-py-v5
+# Stripe v5
 
 **Unofficial repackaged release of [Stripe Python bindings](https://github.com/stripe/stripe-python) version 5.0.0**
 
@@ -14,4 +14,4 @@ This repository contains the extracted source code for `stripe` Python client v5
 Install the package directly from this GitHub repository:
 
 ```bash
-pip install git+https://github.com/NoukhezAhmed786/stripe_v5
+pip install https://github.com/artfinder/stripe_v5/archive/refs/heads/main.zip
